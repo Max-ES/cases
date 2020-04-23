@@ -7,10 +7,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
-import { PortfolioComponent } from './portfolio/portfolio.component';
-import { RobotsComponent } from './robots/robots.component';
-import { TechnologyComponent } from './technology/technology.component';
-import { ServiceComponent } from './service/service.component';
+import { ImprintComponent } from './imprint/imprint.component';
+import { CompanyComponent } from './company/company.component';
 
 @NgModule({
   declarations: [
@@ -18,10 +16,8 @@ import { ServiceComponent } from './service/service.component';
     HomeComponent,
     ServicesComponent,
     ContactComponent,
-    PortfolioComponent,
-    RobotsComponent,
-    TechnologyComponent,
-    ServiceComponent
+    ImprintComponent,
+    CompanyComponent,
   ],
   imports: [
     BrowserModule,
