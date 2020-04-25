@@ -9,6 +9,8 @@ import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
 import { ImprintComponent } from './imprint/imprint.component';
 import { CompanyComponent } from './company/company.component';
+import { FormularComponent } from './formular/formular.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { CompanyComponent } from './company/company.component';
     ContactComponent,
     ImprintComponent,
     CompanyComponent,
+    FormularComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

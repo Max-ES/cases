@@ -1,0 +1,30 @@
+<form class="needs-validation">
+    <h1>Kontaktieren Sie uns!</h1>
+    <div class="form-group">
+        <label for="email">E-Mail-Adresse</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="E-Mail-Adresse eingeben" #email>
+        <small id="emailHelp" class="form-text text-muted">Wir benötigen Ihre E-Mail-Adresse, um Ihnen antworten zu können.</small>
+    </div>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Namen eingeben" #name>
+    </div>
+    <div class="form-group">
+        <label for="message">Nachricht</label>
+        <textarea class="form-control" id="message" rows="3" #message></textarea>
+    </div>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" #checkbox>
+        <label class="form-check-label" for="exampleCheck1">
+          Ich stimme zu, dass meine angegebenen Daten erhoben und verarbeitet werden dürfen. 
+          Nach dem Versenden der Email und der Bearbeitung Ihrer Anfrage werden die Daten wieder gelöscht.
+        </label>
+    </div>
+    <div *ngIf="errorOccured" class="alert alert-danger" role="alert">
+        {{errorMessage}}
+    </div>
+    <div *ngIf="sentFormular" class="alert alert-success" role="alert">
+        {{successMessage}}
+    </div>
+    <button (click)="onSubmit($event)" class="btn btn-primary">Absenden</button>
+</form>
