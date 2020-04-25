@@ -17,6 +17,8 @@ export class FormularComponent implements OnInit {
   sentFormular = false;
   successMessage = 'Sie haben uns erfolgreich kontaktiert. In Kürze erhalten Sie eine Bestätigungsmail von uns.';
 
+  captchaKey = '';
+
   constructor(private formularService: FormularService) { }
 
   ngOnInit(): void {
@@ -30,11 +32,11 @@ export class FormularComponent implements OnInit {
     const message = this.messageInput.nativeElement.value.trim();
     const checked = this.checkboxInput.nativeElement.checked;
     if (this.areValid(email, name, message, checked)){
-      this.formularService.sendFormular(name, email, message).subscribe((response) => {
-        console.log(response);
+      this.formularService.sendFormular(name, email, message, this.captchaKey).subscribe(result => {
+        this.onSuccess();
       }, error => {
         console.log(error);
-        this.raiseError('Error');
+        this.onHttpError();
       });
       // this.onSuccess();
     }
@@ -72,12 +74,18 @@ export class FormularComponent implements OnInit {
     this.errorMessage = message;
   }
 
+  onHttpError() {
+    this.raiseError('Kontaktformular konnte nicht versendet werden. Überprüfen Sie Ihre Angaben oder versuchen Sie es später erneut.');
+    this.captchaKey = '';
+  }
+
   onSuccess() {
     this.sentFormular = true;
     this.emailInput.nativeElement.value = '';
     this.nameInput.nativeElement.value = '';
     this.messageInput.nativeElement.value = '';
     this.checkboxInput.nativeElement.checked = false;
+    this.captchaKey = '';
   }
 
 }

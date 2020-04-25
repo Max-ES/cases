@@ -1,4 +1,4 @@
-<form class="needs-validation">
+<form class="needs-validation" #captchaProtectedForm="ngForm">
     <h1>Kontaktieren Sie uns!</h1>
     <div class="form-group">
         <label for="email">E-Mail-Adresse</label>
@@ -13,7 +13,7 @@
         <label for="message">Nachricht</label>
         <textarea class="form-control" id="message" rows="3" #message></textarea>
     </div>
-    <div class="form-check">
+    <div class="form-check checkbox">
         <input type="checkbox" class="form-check-input" id="exampleCheck1" #checkbox>
         <label class="form-check-label" for="exampleCheck1">
           Ich stimme zu, dass meine angegebenen Daten erhoben und verarbeitet werden dürfen. 
@@ -26,5 +26,8 @@
     <div *ngIf="sentFormular" class="alert alert-success" role="alert">
         {{successMessage}}
     </div>
-    <button (click)="onSubmit($event)" class="btn btn-primary">Absenden</button>
+    <re-captcha [(ngModel)]="captchaKey" class="recaptcha"
+        siteKey="6LfyQO4UAAAAAJgevvb-qStdVHMwipeF5ZI42DkH" required
+        name="captcha"></re-captcha>
+    <button (click)="onSubmit($event)" class="btn btn-primary submit-button" [disabled]="captchaProtectedForm.invalid">Absenden</button>
 </form>
