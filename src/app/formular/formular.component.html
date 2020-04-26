@@ -29,5 +29,9 @@
     <re-captcha [(ngModel)]="captchaKey" class="recaptcha"
         siteKey="6LfyQO4UAAAAAJgevvb-qStdVHMwipeF5ZI42DkH" required
         name="captcha"></re-captcha>
-    <button (click)="onSubmit($event)" class="btn btn-primary submit-button" [disabled]="captchaProtectedForm.invalid">Absenden</button>
+    <button (click)="onSubmit($event)" class="btn btn-primary submit-button" [disabled]="captchaProtectedForm.invalid || loading">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span *ngIf="loading" id="loading-button-text">Absenden...</span>
+        <span *ngIf="!loading">Absenden</span>
+    </button>
 </form>

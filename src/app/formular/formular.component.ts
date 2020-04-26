@@ -12,6 +12,8 @@ export class FormularComponent implements OnInit {
   @ViewChild('message') private messageInput: ElementRef;
   @ViewChild('checkbox') private checkboxInput: ElementRef;
 
+  loading = false;
+
   errorOccured = false;
   errorMessage = 'Ein Fehler ist aufgetreten.';
   sentFormular = false;
@@ -64,12 +66,14 @@ export class FormularComponent implements OnInit {
   }
 
   resetMessages() {
+    this.loading = true;
     this.errorMessage = '';
     this.errorOccured = false;
     this.sentFormular = false;
   }
 
   raiseError(message: string) {
+    this.loading = false;
     this.errorOccured = true;
     this.errorMessage = message;
   }
@@ -80,6 +84,7 @@ export class FormularComponent implements OnInit {
   }
 
   onSuccess() {
+    this.loading = false;
     this.sentFormular = true;
     this.emailInput.nativeElement.value = '';
     this.nameInput.nativeElement.value = '';
