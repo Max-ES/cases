@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'CASES GmbH';
   public isMenuCollapsed = true;
+
+  logoClickCount = 0;
+
+  logoClicked() {
+    this.logoClickCount++;
+  }
+
 }
