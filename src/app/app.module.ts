@@ -13,8 +13,8 @@ import { FormularComponent } from './components/formular/formular.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RecaptchaComponent } from './components/recaptcha/recaptcha.component';
-import { CookieService } from './services/cookie.service';
 import { CookieDialogComponent } from './components/cookie-dialog/cookie-dialog.component';
+import { PrivacyStatementComponent } from './pageComponents/privacy-statement/privacy-statement.component';
 
 
 @NgModule({
@@ -28,6 +28,7 @@ import { CookieDialogComponent } from './components/cookie-dialog/cookie-dialog.
     FormularComponent,
     RecaptchaComponent,
     CookieDialogComponent,
+    PrivacyStatementComponent,
   ],
   imports: [
     BrowserModule,
