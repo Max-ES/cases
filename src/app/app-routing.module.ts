@@ -5,6 +5,7 @@ import { ServicesComponent } from './pageComponents/services/services.component'
 import { ContactComponent } from './pageComponents/contact/contact.component';
 import { ImprintComponent } from './pageComponents/imprint/imprint.component';
 import { CompanyComponent } from './pageComponents/company/company.component';
+import { PrivacyStatementComponent } from './pageComponents/privacy-statement/privacy-statement.component';
 
 
 const routes: Routes = [
@@ -13,10 +14,11 @@ const routes: Routes = [
   {path: 'company', component: CompanyComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'imprint', component: ImprintComponent},
+  {path: 'privacy-statement', component: PrivacyStatementComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,  {scrollPositionRestoration: 'top'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
