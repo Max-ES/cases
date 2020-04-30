@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormularService } from '../formular.service';
+import { FormularService } from '../../services/formular.service';
+import { CookieService } from 'src/app/services/cookie.service';
+import { DialogService } from 'src/app/services/dialog.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-formular',
@@ -12,6 +15,8 @@ export class FormularComponent implements OnInit {
   @ViewChild('message') private messageInput: ElementRef;
   @ViewChild('checkbox') private checkboxInput: ElementRef;
 
+  submitEventSubject: Subject<void> = new Subject<void>();
+
   loading = false;
 
   errorOccured = false;
@@ -21,7 +26,11 @@ export class FormularComponent implements OnInit {
 
   captchaKey = '';
 
-  constructor(private formularService: FormularService) { }
+  constructor(
+    private formularService: FormularService,
+    private cookieService: CookieService,
+    private dialogService: DialogService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -34,13 +43,13 @@ export class FormularComponent implements OnInit {
     const message = this.messageInput.nativeElement.value.trim();
     const checked = this.checkboxInput.nativeElement.checked;
     if (this.areValid(email, name, message, checked)){
+      this.submitEventSubject.next();
       this.formularService.sendFormular(name, email, message, this.captchaKey).subscribe(result => {
         this.onSuccess();
       }, error => {
         console.log(error);
         this.onHttpError();
       });
-      // this.onSuccess();
     }
   }
 
@@ -57,11 +66,19 @@ export class FormularComponent implements OnInit {
       this.raiseError('Bitte geben Sie eine Nachricht ein.');
       return false;
     }
+    else if (this.cookieService.getCookieConsent() === false) {
+      this.dialogService.openCookieDialog();
+      this.loading = false;
+      return false;
+    }
+    else if (this.captchaKey.length === 0) {
+      this.raiseError('Bitte lösen Sie das Captcha.');
+      return false;
+    }
     else if (!checked) {
       this.raiseError('Bitte stimmen Sie der Datenverarbeitung zu.');
       return false;
     }
-
     return true;
   }
 
@@ -91,6 +108,10 @@ export class FormularComponent implements OnInit {
     this.messageInput.nativeElement.value = '';
     this.checkboxInput.nativeElement.checked = false;
     this.captchaKey = '';
+  }
+
+  onCaptchaSolved(key: string) {
+    this.captchaKey = key;
   }
 
 }

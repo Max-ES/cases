@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ServicesComponent } from './services/services.component';
-import { ContactComponent } from './contact/contact.component';
-import { ImprintComponent } from './imprint/imprint.component';
-import { CompanyComponent } from './company/company.component';
+import { HomeComponent } from './pageComponents/home/home.component';
+import { ServicesComponent } from './pageComponents/services/services.component';
+import { ContactComponent } from './pageComponents/contact/contact.component';
+import { ImprintComponent } from './pageComponents/imprint/imprint.component';
+import { CompanyComponent } from './pageComponents/company/company.component';
 
 
 const routes: Routes = [

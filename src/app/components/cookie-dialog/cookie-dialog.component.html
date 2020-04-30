@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Kontaktformular benötigt Cookies.</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close(false)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p>
+    Bitte aktzeptieren Sie das Setzen von Cookies durch reCaptcha.
+    Um uns zu schützen benutzen wir Google reCaptcha, welches Cookies setzt.
+    Wenn sie uns über das Kontaktformular erreichen wollen, müssen Sie das setzen der Cookies akzeptieren.
+    <br> Vielen Dank!
+  </p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close(false)">Ablehnen</button>
+  <button type="button" class="btn btn-success" (click)="activeModal.close(true)">Akzeptieren</button>
+</div>
+
+
