@@ -74,14 +74,4 @@ export class RecaptchaComponent implements OnInit {
   resetRecaptcha() {
     window.grecaptcha.reset();
   }
-
-  checkIfCookiesAllowed() {
-    if (this.cookieService.getCookieConsent() === true) {
-      return true;
-    } else {
-      this.dialogService.openCookieDialog();
-    }
-    return false;
-  }
-
 }
