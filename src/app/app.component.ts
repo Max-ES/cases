@@ -10,6 +10,7 @@ export class AppComponent {
   public isMenuCollapsed = true;
 
   logoClickCount = 0;
+  year = (new Date()).getFullYear();
 
   logoClicked() {
     this.logoClickCount++;
