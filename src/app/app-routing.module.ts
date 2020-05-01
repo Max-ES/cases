@@ -6,6 +6,7 @@ import { ContactComponent } from './pageComponents/contact/contact.component';
 import { ImprintComponent } from './pageComponents/imprint/imprint.component';
 import { CompanyComponent } from './pageComponents/company/company.component';
 import { PrivacyStatementComponent } from './pageComponents/privacy-statement/privacy-statement.component';
+import { ConditionsComponent } from './pageComponents/conditions/conditions.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'imprint', component: ImprintComponent},
   {path: 'privacy-statement', component: PrivacyStatementComponent},
+  {path: 'conditions', component: ConditionsComponent},
 ];
 
 @NgModule({

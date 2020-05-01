@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { RecaptchaComponent } from './components/recaptcha/recaptcha.component';
 import { CookieDialogComponent } from './components/cookie-dialog/cookie-dialog.component';
 import { PrivacyStatementComponent } from './pageComponents/privacy-statement/privacy-statement.component';
+import { ConditionsComponent } from './pageComponents/conditions/conditions.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { PrivacyStatementComponent } from './pageComponents/privacy-statement/pr
     RecaptchaComponent,
     CookieDialogComponent,
     PrivacyStatementComponent,
+    ConditionsComponent,
   ],
   imports: [
     BrowserModule,
