@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/scss/bootstrap"
+
+$blue: #002c85
+$orange: #f78024
+$light-orange: #f78024d1
 
 .text-container
     padding: 2em
@@ -19,5 +22,12 @@ body
     h3
         font-size: 1.2em
         font-weight: 200
+    a
+        &:hover
+            color: $orange
+
+$primary: $blue
+
+@import "~bootstrap/scss/bootstrap"
 
 

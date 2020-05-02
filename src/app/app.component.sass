@@ -1,3 +1,5 @@
+@import ../styles.sass
+    
 .navbar
     margin: 0 !important
     box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12)
@@ -14,6 +16,11 @@
     #c-logo 
         width: 2em
         height: 2em
+    .nav-link
+        &:hover
+            color: $light-orange !important
+        &.active
+            color: black !important
 
 #content
     padding-top: calc(4em + 1rem)
@@ -23,12 +30,13 @@ footer
     background-color: #313131
     padding: 2em
     padding-bottom: 1em
-    p, h5
+    p, a, h5
         color: white
+    a 
+        &:hover
+            color: $orange
     .center
         text-align: center
         p 
             margin: 0
             color: #6f6f6f
-        a
-            color: white
