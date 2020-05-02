@@ -72,7 +72,7 @@ export class FormularComponent implements OnInit {
       return false;
     }
     else if (this.captchaKey.length === 0) {
-      this.raiseError('Bitte lösen Sie das Captcha.');
+      this.raiseError('Bitte lösen Sie das Captcha. Falls kein Captcha angezeigt wird, überprüfen Sie Ihre Internetverbindung.');
       return false;
     }
     else if (!checked) {
