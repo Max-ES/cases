@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light mb-3">
   <a routerLink="" (click)="logoClicked()">
     <img *ngIf="logoClickCount <= 50" src="../assets/logo/logo_dark_blue.png" alt="logo" [ngClass]="scrolledUp?'logo-large':'logo'">
-    <!--<img *ngIf="logoClickCount > 50" id="c-logo" src="../assets/logo/c.gif" alt="logo">-->
   </a>
   <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
     &#9776;
