@@ -14,6 +14,6 @@ export class FormularService {
 
   public sendFormular(name: string, email: string, message: string, captchaKey: string) {
     const body = {name, message, email, captchaKey};
-    return this.http.post('/api/sendFormular.php', body, Object.assign({headers: this.headers}));
+    return this.http.post('/api/sendFormular', body, Object.assign({headers: this.headers}));
   }
 }
