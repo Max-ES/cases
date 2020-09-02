@@ -32,6 +32,20 @@ footer
     padding-bottom: 1em
     p, a, h5
         color: white
+    h5
+        display: block
+        padding-bottom: 10px
+        position: relative
+        cursor: pointer
+        outline: none
+    h5:before 
+        content: ""
+        position: absolute
+        width: 3rem
+        height: 1px
+        bottom: 0
+        left: 2px
+        border-bottom: 2px solid $orange
     a 
         &:hover
             color: $orange
